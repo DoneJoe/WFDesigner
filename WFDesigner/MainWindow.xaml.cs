@@ -49,11 +49,15 @@ namespace WFDesigner
         {
             ToolboxControl toolboxControl = new ToolboxControl();
             ToolboxCategory toolboxCategory = new ToolboxCategory("Activities");
+            ToolboxCategory toolboxCategory_Loops = new ToolboxCategory("Loops");
             ToolboxItemWrapper sequence = new ToolboxItemWrapper(typeof(Sequence));
             ToolboxItemWrapper writeLine = new ToolboxItemWrapper(typeof(WriteLine));
+            ToolboxItemWrapper Statemets_While = new ToolboxItemWrapper(typeof(While));
             toolboxCategory.Add(sequence);
             toolboxCategory.Add(writeLine);
+            toolboxCategory_Loops.Add(Statemets_While);
             toolboxControl.Categories.Add(toolboxCategory);
+            toolboxControl.Categories.Add(toolboxCategory_Loops);
             return toolboxControl;
         }
 
