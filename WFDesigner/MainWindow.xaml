@@ -1,0 +1,55 @@
+﻿<Window x:Class="WFDesigner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WFDesigner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="0"  Grid.Row="1" Width="5" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+        <GridSplitter Grid.Column="2"  Grid.Row="1" Width="5" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+        
+        <StackPanel Grid.ColumnSpan="3">
+            <Menu Height="25" VerticalAlignment="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New Workflow" Click="MenuItem_Click_NewWorkflow"/>
+                    <MenuItem Header="Load Workflow" Click="MenuItem_Click_LoadWorkflow"/>
+                    <Separator/>
+                    <MenuItem Header="Save" Click="MenuItem_Click_Save"/>
+                    <MenuItem Header="SaveAs" Click="MenuItem_Click_SaveAs"/>
+                </MenuItem>
+                <MenuItem Header="Test">
+                    <MenuItem Header="Run" Click="MenuItem_Click_Run"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <TabControl Margin="0,0,5,0" Grid.Row="1" Grid.Column="0">
+            <TabItem Header="Toolbox">
+                <ContentControl Name="toolboxPanel"/>
+            </TabItem>
+        </TabControl>
+        <TabControl Margin="0,0,0,0" Grid.Row="1" Grid.Column="1">
+            <TabItem Header="WorkflowDesigner">
+                <ContentControl Name="workflowDesignerPanel"/>
+            </TabItem>
+            <TabItem Header="XAML workflow" GotFocus="TabItem_GotFocus_RefreshXamlBox">
+                <TextBox Name="xamlTextBox" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"></TextBox>
+            </TabItem>
+        </TabControl>
+        <TabControl Margin="5,0,0,0" Grid.Row="1" Grid.Column="2">
+            <TabItem Header="WorkflowProperty">
+                <ContentControl Name="WorkflowPropertyPanel"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
